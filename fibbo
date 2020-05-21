@@ -1,0 +1,27 @@
+//fibonacci series for non-negative n
+#include <stdio.h>
+int m[15];//make according to constrain
+int fab(int n){
+    if(m[n]!=-1){
+        return m[n];
+    }
+   else if(n==0||n==1){
+        m[n]=n;
+        return m[n];
+    }
+    else{
+        m[n]=fab(n-1)+fab(n-2);
+        return m[n];
+    }
+
+}
+int main()
+{
+    int n=10;//start from n=0,1,2...so n=10 basically means 11th element
+   for(int i=0;i<n+1;i++){
+       m[i]=-1;//putt all element -1
+   }
+   int ans=fab(n);
+   printf("%d",ans);
+    return 0;
+}
